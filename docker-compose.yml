@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/http_echo?connect=false&connectTimeoutMS=5000
+    ports:
+      - 5000:5000
+
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:3.7
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_volume:/data/db
+
+volumes:
+  mongo_volume:

@@ -1,0 +1,24 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+uwsgi = "*"
+flask = "*"
+flask-pymongo = "*"
+
+
+[dev-packages]
+
+pylint = "*"
+pytest = "*"
+yapf = "*"
+
+
+[requires]
+
+python_version = "3.6"
