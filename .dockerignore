@@ -103,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+data/*
+!data/.keep
+
 Dockerfile
 docker-compose.yml
