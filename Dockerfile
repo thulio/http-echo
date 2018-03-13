@@ -19,13 +19,16 @@ RUN set -e \
     | sort -u \
     )" \
     && apk add --virtual .python-rundeps $runDeps \
-    && apk del .build-deps
+    && apk del .build-deps \
+    && adduser -S app
 
 FROM builder
 
 COPY . /app
 
 EXPOSE 5000
+
+USER app
 
 ENTRYPOINT ["uwsgi", "--http", "0.0.0.0:5000", "--wsgi-file", "http_echo/app.py", \
     "--callable", "app", "--master", "--processes", "2", "--offload-threads", \
