@@ -44,4 +44,6 @@ def echo(path):
 
 
 if __name__ == "__main__":
-    app.run(port=os.getenv("PORT", 5000), debug=os.getenv("DEBUG", "0") == "1")
+    app.run(
+        port=int(os.getenv("PORT", 5000)),
+        debug=os.getenv("DEBUG", "0") == "1")
